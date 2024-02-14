@@ -6,7 +6,7 @@
 
  date    : 2024/02/13 
 
- update :
+ update : 2024/02/14
 
 ***
 
@@ -37,6 +37,8 @@ yarn dev
 
 ***
 ### blog
+
+* https://zenn.dev/knaka0209/scraps/9123b01abf89e6
 
 ***
 

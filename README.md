@@ -13,6 +13,29 @@
 express + vue + vite, MPA sample
 
 ***
+### build
+
+* vue build
+```
+npx vite build --mode client
+
+#watch
+npx vite build --mode client --watch
+```
+
+***
+* express build
+
+* build
+```
+yarn buid
+```
+* dev-start
+```
+yarn dev
+```
+
+***
 ### blog
 
 ***

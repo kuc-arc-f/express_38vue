@@ -5,6 +5,8 @@ const app = express();
 //
 import Top from './pages/App';
 import About from './pages/about';
+import Contact from './pages/Contact';
+//Contact
 //const routes = require('./routes/index');
 //import testRouter from './routes/test';
 //import commonRouter from './routes/common';
@@ -26,6 +28,14 @@ app.get('/about', (req: any, res: any) => {
     res.sendStatus(500);
   }
 });
+app.get('/contact', (req: any, res: any) => {
+  try {
+    res.send(renderToString(Contact()));
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+//Contact
 app.get('/', (req: any, res: any) => {
   try {
     res.send(renderToString(Top()));

@@ -17,21 +17,8 @@ express + vue + vite, MPA sample
 
 * vue build
 ```
-npx vite build --mode client
+yarn build
 
-#watch
-npx vite build --mode client --watch
-```
-
-***
-* express build
-
-* build
-```
-yarn buid
-```
-* dev-start
-```
 yarn dev
 ```
 

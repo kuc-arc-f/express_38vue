@@ -25,7 +25,7 @@ yarn dev
 ***
 ### blog
 
-* https://zenn.dev/knaka0209/scraps/9123b01abf89e6
+* https://zenn.dev/knaka0209/books/b1bd883fb8dd95/viewer/642a08
 
 ***
 

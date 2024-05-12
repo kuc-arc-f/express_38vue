@@ -2,8 +2,10 @@
 </script>
 
 <template>
-    <router-link to="/">[ Home ]</router-link>
-    <router-link to="/about">[ About ]</router-link>
+    <a href="/">[ Home ]</a>
+    <a href="/about">[ About ]</a>
+    <a href="/contact">[ Contact ]</a>
+    <hr />
 </template>
 
 <style scoped>

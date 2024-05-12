@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import Header from '../components/Header.vue'
 </script>
 
 <template>
 <div>
-  <a href="/">[ home ]</a>
-  <hr />
+  <Header />
   <h1>Contact!!!</h1>
 </div>
 </template>

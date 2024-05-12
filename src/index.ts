@@ -1,49 +1,42 @@
 
 import express from 'express';
-import { renderToString } from 'react-dom/server';
+import { renderToString } from 'vue/server-renderer'
 const app = express();
 //
-import Top from './pages/App';
-import About from './pages/about';
-import Contact from './pages/Contact';
-//Contact
-//const routes = require('./routes/index');
-//import testRouter from './routes/test';
-//import commonRouter from './routes/common';
+//import Top from './pages/App';
+import { createApp } from './pages/App'
+import {AboutCreateApp} from './pages/About';
+import {ContactCreateApp} from './pages/Contact';
 //
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // route
-//app.use('/', routes);
-//app.use('/api/test', testRouter);
 //app.use('/api/common', commonRouter);
 
 //MPA
-app.get('/about', (req: any, res: any) => {
+app.get('/about', async (req: any, res: any) => {
   try {
-    res.send(renderToString(About()));
-  } catch (error) {
-    res.sendStatus(500);
-  }
+    const { app } = AboutCreateApp()
+    const html = await renderToString(app, {})
+    res.send(html); 
+  } catch (error) { res.sendStatus(500); }
 });
-app.get('/contact', (req: any, res: any) => {
+app.get('/contact', async (req: any, res: any) => {
   try {
-    res.send(renderToString(Contact()));
-  } catch (error) {
-    res.sendStatus(500);
-  }
+    const { app } = ContactCreateApp()
+    const html = await renderToString(app, {})
+    res.send(html); 
+  } catch (error) { res.sendStatus(500); }
 });
-//Contact
-app.get('/', (req: any, res: any) => {
+app.get('/', async (req: any, res: any) => {
   try {
-    res.send(renderToString(Top()));
-  } catch (error) {
-    res.sendStatus(500);
-  }
+    const { app } = createApp()
+    const html = await renderToString(app, {})
+    res.send(html); 
+  } catch (error) { res.sendStatus(500); }
 });
-
 
 //start
 const PORT = 4000;

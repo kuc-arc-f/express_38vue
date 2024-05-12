@@ -7,24 +7,30 @@ const directoryPath = './src/client';
 export default defineConfig(async({ mode }) => {
   const entryFiles = await buildCommon.getEntryItems(directoryPath);
 //console.log(entryFiles);
-  return {
-    plugins: [vue()],
-    define: {
-      "process.env.NODE_ENV": '"production"',
-    },
-    build: {
-      lib: {
-        entry: entryFiles,
-        formats: ['es'],
-        fileName: '[name]',
-      },
-      rollupOptions: {
-        output: {
-          dir: './public/static'
-        }
-      },
-      emptyOutDir: false,
-      copyPublicDir: false
+  if (mode === 'client') {
+    return {
+      plugins: [vue()],
+      define: {
+        "process.env.NODE_ENV": '"production"',
+      }, 
+      build: {
+        lib: {
+          entry: entryFiles,
+          formats: ['es'],
+          fileName: '[name]',
+        },
+        rollupOptions: {
+          output: {
+            dir: './public/static'
+          }
+        },
+        emptyOutDir: false,
+        copyPublicDir: false
+      }
+    }
+  } else {
+    return {
+      plugins: [vue()]
     }
   }
 })

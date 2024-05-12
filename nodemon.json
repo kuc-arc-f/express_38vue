@@ -2,5 +2,5 @@
   "watch": ["src"],
   "ext": "ts,tsx,vue", 
   "ignore": ["src/lib/**/*.txt"],
-  "exec": "node build.js && npm run build:js && node ./dist/index.js"
+  "exec": "npm run build:server && npm run build:js && node ./dist/index.js"
 }

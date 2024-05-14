@@ -23,6 +23,14 @@ yarn dev
 ```
 
 ***
+### Sample
+
+* simple_auth: simple auth, user data from .env 
+
+* tailwindcss: css sample
+
+***
+
 ### blog
 
 * https://zenn.dev/knaka0209/books/b1bd883fb8dd95/viewer/642a08

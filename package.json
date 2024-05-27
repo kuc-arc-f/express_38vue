@@ -6,6 +6,7 @@
     "build:server": "vite build --ssr src/index.ts --outDir dist",
     "build:js": "npx vite build --mode client",
     "build:clean": "rimraf dist && rimraf public/static",
+    "clean": "rimraf dist && rimraf public/static",
     "deploy": "npm run build && vercel --prod"
   },
   "devDependencies": {

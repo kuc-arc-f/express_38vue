@@ -1,12 +1,12 @@
 
 import express from 'express';
 import { renderToString } from 'vue/server-renderer'
+import { createSSRApp } from 'vue'
 const app = express();
 //
-//import Top from './pages/App';
-import { createApp } from './pages/App'
-import {AboutCreateApp} from './pages/About';
-import {ContactCreateApp} from './pages/Contact';
+import App from './pages/App.vue';
+import AboutApp from './pages/About.vue';
+import ContactApp from './pages/Contact.vue';
 //
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,21 +18,21 @@ app.use(express.static('public'));
 //MPA
 app.get('/about', async (req: any, res: any) => {
   try {
-    const { app } = AboutCreateApp()
+    const app = createSSRApp(AboutApp);
     const html = await renderToString(app, {})
     res.send(html); 
   } catch (error) { res.sendStatus(500); }
 });
 app.get('/contact', async (req: any, res: any) => {
   try {
-    const { app } = ContactCreateApp()
+    const app = createSSRApp(ContactApp);
     const html = await renderToString(app, {})
     res.send(html); 
   } catch (error) { res.sendStatus(500); }
 });
 app.get('/', async (req: any, res: any) => {
   try {
-    const { app } = createApp()
+    const app = createSSRApp(App);
     const html = await renderToString(app, {})
     res.send(html); 
   } catch (error) { res.sendStatus(500); }
